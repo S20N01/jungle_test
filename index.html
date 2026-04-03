@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wander into the Sylvara Rainforest. Intentional journeys for deep immersion.">
+    <title>Wander — Sylvara Rainforest</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="forest-page">
+    <!-- Custom Cursor -->
+    <div id="leaf-cursor">🌿</div>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <a href="index.html" class="wander-logo">Wander</a>
+        <div class="nav-links">
+            <a href="about.html"    class="glass-btn hover-link">About</a>
+            <a href="bookings.html" id="bookings-link" class="hover-link glass-btn" style="display:none;">Journeys</a>
+            <span id="user-label" class="user-label glass-btn" style="display:none;"></span>
+            <a href="auth.html" id="auth-btn" class="glass-btn">Sign In</a>
+            <a href="ocean.html" class="glass-btn ocean-switcher">🌊 Ocean</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content scroll-reveal">
+                <span class="dest-pill">Ancient Rainforest</span>
+                <h1 class="wander-hero-title">Wander Time</h1>
+                <p class="hero-tagline">Where the canopy breathes and time dissolves</p>
+                <p class="hero-location">Sylvara · Borneo, Southeast Asia</p>
+                <a href="#plans" class="glass-btn" style="margin-top: 24px;">Discover</a>
+            </div>
+            <div class="scroll-cue scroll-reveal delay-2">
+                <div class="scroll-line"></div>
+                <span class="scroll-text">Scroll</span>
+            </div>
+        </section>
+
+        <!-- Plans Section -->
+        <section id="plans" class="plans-section">
+            <p class="section-eyebrow">Choose Your Path</p>
+            <h2 class="section-title section-title-shift">Into the Green</h2>
+            
+            <div class="plans-grid">
+                <!-- Standard Plan -->
+                <article class="plan-card glass scroll-reveal delay-1">
+                    <div class="plan-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?fit=crop&w=600&q=80" alt="Forest Wanderer lodge" class="plan-img" loading="lazy">
+                        <span class="plan-badge badge-standard">Standard</span>
+                    </div>
+                    <div class="plan-body">
+                        <h3 class="plan-name">Forest Wanderer</h3>
+                        <p class="plan-price">$2,400</p>
+                        <p class="plan-duration">7 Days · 6 Nights</p>
+                        <ul class="plan-features">
+                            <li>Base camp lodge accommodation</li>
+                            <li>Guided jungle trek with naturalist</li>
+                            <li>Canopy walkway at sunrise</li>
+                            <li>Traditional Borneo dinner experience</li>
+                            <li>River boat excursion through the canopy</li>
+                        </ul>
+                        <button class="book-btn" data-plan='{"name":"Forest Wanderer","price":"$2,400","destination":"Sylvara Rainforest","duration":"7 Days · 6 Nights","type":"Standard"}'>Book This Journey</button>
+                    </div>
+                </article>
+
+                <!-- Premium Plan -->
+                <article class="plan-card glass scroll-reveal delay-2">
+                    <div class="plan-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?fit=crop&w=600&q=80" alt="Sylvara Elite treehouse" class="plan-img" loading="lazy">
+                        <span class="plan-badge badge-premium">Premium</span>
+                    </div>
+                    <div class="plan-body">
+                        <h3 class="plan-name">Sylvara Elite</h3>
+                        <p class="plan-price">$12,800</p>
+                        <p class="plan-duration">14 Days · 13 Nights</p>
+                        <ul class="plan-features">
+                            <li>Private luxury treehouse villa with deck</li>
+                            <li>Dedicated personal naturalist guide</li>
+                            <li>Helicopter canopy panorama tour</li>
+                            <li>Botanical spa treatments nightly</li>
+                            <li>Private chef & gourmet dining</li>
+                        </ul>
+                        <button class="book-btn" data-plan='{"name":"Sylvara Elite","price":"$12,800","destination":"Sylvara Rainforest","duration":"14 Days · 13 Nights","type":"Premium"}'>Book This Journey</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+   <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <span class="footer-logo">Wander</span>
+      <p class="footer-tagline">Two worlds. One compass.</p>
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html" class="footer-link">Sylvara Forest</a>
+      <a href="ocean.html" class="footer-link">Azurith Ocean</a>
+      <a href="bookings.html" class="footer-link">My Journeys</a>
+      <a href="about.html" class="footer-link">About</a>
+    </nav>
+    <div class="footer-legal">
+      <a href="about.html#privacy" class="footer-link">Privacy Policy</a>
+      <p class="footer-copyright">© 2026 Wander. All rights reserved.</p>
+    </div>
+  </div>
+  <div class="footer-accent-line"></div>
+</footer>
+
+    <!-- Script Execution Order -->
+    <script src="js/auth.js"></script>
+    <script src="js/bookings.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // ===== BOOKING BUTTON DELEGATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.book-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const plan = JSON.parse(btn.dataset.plan);
+                    if (typeof bookPlan === 'function') bookPlan(plan);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

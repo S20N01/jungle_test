@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in or create an account to manage your Wander journeys.">
+    <title>Wander — Sign In</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+    <nav class="nav-container">
+        <a href="index.html" class="wander-logo">Wander</a>
+        <a href="index.html" class="glass-btn">← Back</a>
+    </nav>
+
+    <main class="auth-card glass">
+        <span class="auth-logo">Wander</span>
+
+        <!-- SIGN IN FORM -->
+        <form id="signin-form" autocomplete="on">
+            <h1 class="auth-title">Welcome back.</h1>
+            <p class="auth-sub">Sign in to manage your journeys.</p>
+
+            <label class="auth-label" for="signin-username">Username</label>
+            <input id="signin-username" class="auth-input" type="text" required autocomplete="username">
+
+            <label class="auth-label" for="signin-password">Password</label>
+            <input id="signin-password" class="auth-input" type="password" required autocomplete="current-password">
+
+            <div id="signin-error" class="auth-error"></div>
+            <button type="submit" class="auth-submit">Sign In</button>
+        </form>
+
+        <div class="auth-toggle" id="toggle-signin-wrapper">
+            No account yet? <a href="#" id="toggle-to-signup">Create one</a>
+        </div>
+
+        <!-- SIGN UP FORM (Initially Hidden) -->
+        <form id="signup-form" style="display: none;" autocomplete="on">
+            <h1 class="auth-title">Join Wander.</h1>
+            <p class="auth-sub">Create an account to book and track your journeys.</p>
+
+            <label class="auth-label" for="signup-username">Choose a Username</label>
+            <input id="signup-username" class="auth-input" type="text" required autocomplete="username">
+
+            <label class="auth-label" for="signup-password">Choose a Password</label>
+            <input id="signup-password" class="auth-input" type="password" required autocomplete="new-password">
+
+            <div id="signup-error" class="auth-error"></div>
+            <button type="submit" class="auth-submit">Create Account</button>
+        </form>
+
+        <div class="auth-toggle" id="toggle-signup-wrapper" style="display: none;">
+            Already have an account? <a href="#" id="toggle-to-signin">Sign in</a>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
