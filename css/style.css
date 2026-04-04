@@ -883,70 +883,72 @@ body::before {
   .scroll-reveal { opacity: 1; transform: none; filter: none; }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== FOOTER (DESKTOP BASE) ===== */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 52px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.forest-page .site-footer { background: var(--forest-mid); }
+.ocean-page .site-footer { background: var(--ocean-mid); }
+
+.footer-text {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-text:hover { color: rgba(255,255,255,0.55); }
+
 /* ===== RESPONSIVE & MOBILE OPTIMIZATION ===== */
 @media (max-width: 768px) {
-  /* Navigation: Stack & center on mobile */
-  .nav-container {
-    padding: 14px 20px;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .nav-container.scrolled { padding: 10px 20px; }
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-  }
-  .nav-links .glass-btn { padding: 8px 16px; font-size: 11px; }
+  /* Navigation */
+  .nav-container { padding: 16px 24px; }
+  .nav-container.scrolled { padding: 12px 24px; }
+  .nav-links { gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .nav-links .glass-btn { padding: 7px 14px; font-size: 11px; }
 
-  /* Hero: Mobile viewport & scaling */
+  /* Hero */
   .hero-section { min-height: 100svh; }
-  .wander-hero-title { font-size: clamp(72px, 18vw, 120px); line-height: 0.85; }
-  .hero-tagline { font-size: 14px; padding: 0 12px; }
-  .dest-pill { font-size: 9px; padding: 5px 14px; }
-  .scroll-cue { display: none; } /* Hide scroll prompt on touch */
+  .wander-hero-title { font-size: clamp(68px, 18vw, 110px); line-height: 0.9; }
+  .hero-tagline { font-size: 14px; }
+  .scroll-cue { display: none; }
 
-  /* Plans: Single column, full width */
-  .plans-section { padding: 60px 20px; }
-  .section-title { margin-bottom: 40px; font-size: clamp(32px, 8vw, 56px); }
-  .plans-grid { grid-template-columns: 1fr; gap: 20px; max-width: 100%; }
-  .plan-img-wrap { height: 220px; }
+  /* Plans */
+  .plans-section { padding: 60px 24px; }
+  .section-title { margin-bottom: 40px; }
+  .plans-grid { grid-template-columns: 1fr; max-width: 100%; gap: 20px; }
+  .plan-img-wrap { height: 200px; }
   .plan-body { padding: 22px; }
-  .book-btn { min-height: 48px; font-size: 13px; }
 
-  /* Inner Pages & Auth */
-  .inner-page { padding: 100px 20px 60px; }
-  .auth-card { padding: 36px 24px; max-width: 90%; }
-  .page-title { font-size: clamp(38px, 9vw, 64px); margin-bottom: 24px; }
-
-  /* Bookings List */
+  /* Inner Pages & Bookings */
+  .inner-page { padding: 90px 24px 60px; }
   .booking-item { flex-direction: column; align-items: flex-start; gap: 16px; padding: 18px; }
   .booking-right { width: 100%; justify-content: space-between; align-items: center; }
-  .cancel-btn { min-height: 44px; padding: 10px 16px; }
 
-  /* Footer: Stack & center */
+  /* Footer (MOBILE ONLY) */
   .site-footer {
-    padding: 40px 20px;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     text-align: center;
+    padding: 28px 24px;
   }
+
+  /* Touch Target Compliance */
+  .book-btn, .cancel-btn, .auth-submit { min-height: 48px; }
 }
 
 @media (max-width: 480px) {
   .nav-links { gap: 6px; }
-  .nav-links .glass-btn { padding: 7px 12px; font-size: 10px; letter-spacing: 0.04em; }
-  .plan-body { padding: 20px; }
-  .auth-card { padding: 28px 18px; }
-  .auth-input { padding: 14px; font-size: 16px; } /* Prevents iOS auto-zoom on focus */
-  .auth-submit { min-height: 48px; font-size: 13px; }
+  .auth-card { padding: 32px 20px; }
+  .auth-input { font-size: 16px; } /* Prevents iOS zoom on focus */
+  .page-title { font-size: clamp(36px, 10vw, 64px); }
 }
 
-/* Touch Device & Pointer Optimization */
+/* ===== TOUCH & POINTER OPTIMIZATION ===== */
 @media (hover: none) and (pointer: coarse) {
   #leaf-cursor { display: none !important; }
   * { cursor: auto !important; }
@@ -957,21 +959,6 @@ body::before {
     transform: scale(0.97);
     transition-duration: 0.1s;
   }
-}
-
-  /* Updated Footer Responsive Layout */
-  .site-footer { padding: 48px 24px 24px; }
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    text-align: center;
-  }
-  .footer-link:hover { transform: translateY(-3px); }
-  .footer-accent-line { margin-top: 32px; }
-}
-
-@media (max-width: 480px) {
-  .nav-links { gap: 6px; }
 }
 
 /* ===== HEARTBEAT ANIMATION ===== */
