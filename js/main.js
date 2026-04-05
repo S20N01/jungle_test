@@ -73,6 +73,34 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
+  // ===== INQUIRY FORM INTERCEPTION =====
+const inquiryForm = document.getElementById('journey-inquiry-form');
+if (inquiryForm) {
+  inquiryForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const errorEl = document.getElementById('inquiry-error');
+    if (errorEl) errorEl.textContent = '';
+
+    const name  = document.getElementById('inq-name').value.trim();
+    const email = document.getElementById('inq-email').value.trim();
+    const plan  = document.getElementById('inq-plan').value;
+    const date  = document.getElementById('inq-date').value;
+
+    if (!name || !email || !plan || !date) {
+      if (errorEl) errorEl.textContent = 'Please complete all fields.';
+      return;
+    }
+
+    // Store locally for demonstration (replace with API call in production)
+    const inquiry = { name, email, plan, date, submittedAt: new Date().toISOString() };
+    const existing = JSON.parse(localStorage.getItem('wander_inquiries') || '[]');
+    existing.push(inquiry);
+    localStorage.setItem('wander_inquiries', JSON.stringify(existing));
+
+    showToast('Itinerary request received. We will be in touch shortly.');
+    inquiryForm.reset();
+  });
+}
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
