@@ -54,6 +54,19 @@
     </div>
   </section>
 
+  <!-- DESTINATION INTRODUCTION -->
+<section class="intro-section">
+  <div class="intro-container">
+    <p class="intro-eyebrow">The Invitation</p>
+    <h2 class="intro-title">Where Water Becomes Sky</h2>
+    <div class="intro-content">
+      <p>Azurith exists at the edge of perception — an atoll so remote, so untouched, that the boundary between ocean and horizon dissolves completely. Here, the water is not blue but crystalline, holding a clarity that erases the distinction between above and below. You do not look at the sea; you are suspended within it.</p>
+      <p>This is a place of radical stillness. The waves move with a rhythm older than memory. The stars reflect in water so calm it becomes a mirror to the cosmos. In this vastness, something shifts — the constant pull of urgency softens, and you remember what it means to simply be.</p>
+      <p>Our journeys are crafted to surrender you to this stillness. Led by those who know these waters as home, you will discover not just the reef, but the profound peace that exists when you stop fighting the current and let it carry you.</p>
+    </div>
+  </div>
+</section>
+
   <!-- Plans Section -->
   <section class="plans-section">
     <p class="section-eyebrow scroll-reveal">Choose Your Escape</p>
@@ -131,6 +144,43 @@
 
     </div>
   </section>
+
+  <!-- INQUIRY / REQUEST MODULE -->
+<section id="inquiry" class="inquiry-section">
+  <div class="inquiry-container glass">
+    <p class="section-eyebrow">Begin Your Journey</p>
+    <h2 class="section-title">Request an Itinerary</h2>
+    <p class="inquiry-sub">Share your details and preferred dates. We will prepare a personalized outline for your journey.</p>
+
+    <form id="journey-inquiry-form" autocomplete="off">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="inquiry-label" for="inq-name">Full Name</label>
+          <input id="inq-name" class="inquiry-input" type="text" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label class="inquiry-label" for="inq-email">Email Address</label>
+          <input id="inq-email" class="inquiry-input" type="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label class="inquiry-label" for="inq-plan">Selected Journey</label>
+          <select id="inq-plan" class="inquiry-input" required>
+            <option value="" disabled selected>Choose a plan</option>
+            <option value="Coastal Drift">Coastal Drift (Standard)</option>
+            <option value="Azurith Prestige">Azurith Prestige (Premium)</option>
+            <option value="Azurith Prestige">Custom Plan (Diamond)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="inquiry-label" for="inq-date">Preferred Start Date</label>
+          <input id="inq-date" class="inquiry-input" type="date" required>
+        </div>
+      </div>
+      <div id="inquiry-error" class="inquiry-error"></div>
+      <button type="submit" class="inquiry-submit">Submit Request</button>
+    </form>
+  </div>
+</section>
 
   <!-- Footer -->
  <footer class="site-footer">
