@@ -104,4 +104,24 @@ if (inquiryForm) {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // ===== FAQ ACCORDION TOGGLE =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    
+    // Close all items (accordion behavior)
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    
+    // Open clicked item if it wasn't already active
+    if (!isActive) {
+      item.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 });
